@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Results</title>
+</head>
+<body>
+    <h1>Production Results</h1>
+    <h2>生産量</h2>
+    <ul>
+        {% for product in products %}
+        <li>{{ product }}: {{ total_production[product] }} 個（ストックを除いた生産量）</li>
+        {% endfor %}
+    </ul>
+
+    <h2>最終生産量（ストックを加算）</h2>
+    <ul>
+        {% for product in products %}
+        <li>{{ product }}: {{ final_production[product] }} 個</li>
+        {% endfor %}
+    </ul>
+
+    <h2>ラインごとの生産量</h2>
+    {% for line, products in line_production.items() %}
+        <h3>ライン {{ line }}</h3>
+        <ul>
+            {% for product, amount in products.items() %}
+            <li>{{ product }}: {{ amount }} 個（生産時間: {{ line_hours[line][product] }} 時間）</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <h2>生産時間の棒グラフ</h2>
+    <img src="{{ graph_url }}" alt="Production Graph">
+
+    <a href="/">Back to Calculator</a>
+</body>
+</html>

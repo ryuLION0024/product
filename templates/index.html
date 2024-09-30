@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Calculator</title>
+</head>
+<body>
+    <h1>Production Calculator</h1>
+    <form action="/calculate" method="POST">
+        <div>
+            <label for="Ham1_target">Ham1 目標生産量:</label>
+            <input type="number" name="Ham1_target" required><br>
+            <label for="Ham1_stock">Ham1 前日までのストック:</label>
+            <input type="number" name="Ham1_stock" required><br><br>
+        </div>
+        <div>
+            <label for="Ham2_target">Ham2 目標生産量:</label>
+            <input type="number" name="Ham2_target" required><br>
+            <label for="Ham2_stock">Ham2 前日までのストック:</label>
+            <input type="number" name="Ham2_stock" required><br><br>
+        </div>
+        <div>
+            <label for="surplus_ratio">余剰生産割合（例: 1.2 = 120%）:</label>
+            <input type="number" name="surplus_ratio" step="0.1" value="1.2"><br><br>
+        </div>
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>
